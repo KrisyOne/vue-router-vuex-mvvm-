@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div id="app">
+    <p>{{name}}</p>
+    <p v-text="name"></p>
+    <p>{{age}}</p>
+    <input type="text" v-model="name">
+    <button @click="changeName">hehe</button>
+    <div v-html="html"></div>
+  </div>
+  <script src="compile.js"></script>
+  <script src="kvue.js"></script>
+  
+  <script>
+    const app = new KVue({
+      el: '#app',
+      data: {
+        name: 'I am Test',
+        age: 12,
+        html: '<button>这是按钮</button>'
+      },
+      created(){
+        console.log('开始')
+        setTimeout(() => {
+          this.name = '我是测试'
+        }, 1000)
+      },
+      methods: {
+        changeName() {
+          this.name = 'holo'
+          this.age = 1
+        }
+      }
+    })
+    // app.foo = '3'
+    // app.bar.mua='rr'
+    // console.log(app) 
+  </script>
+</body>
+</html>

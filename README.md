@@ -1,1 +1,2 @@
-# vue-router-vuex-mvvm-
+# mvvm
+vue-router 包含vuex/vue-router

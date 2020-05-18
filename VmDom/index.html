@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="vdom.js"></script>
+  <style>
+    .item-header{
+      font-size: 30px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+
+  </div>
+  <script>
+      let vnode = createElement('div', {id: 'test'}, [
+        createElement('p', {key: 'a', style: {color: 'red'}}, '节点1'),
+        createElement('p', {key: 'b', '@click': ()=> {alert(1)}}, '节点2'),
+        createElement('p', {key: 'c', 'class': 'item-header'}, '节点3'),
+        createElement('p', {key: 'd'}, '节点4')
+      ])
+      let vnode1 = createElement('div', {id: 'test'}, [
+        createElement('p', {key: 'e', style: {color: 'grey', fontSize: '50px'}}, '节点5'),
+        createElement('p', {key: 'c'}, '节点3'),
+        createElement('p', {key: 'a', style: {color: 'yellow'}}, '节点1'),
+        createElement('p', {key: 'd'}, '节点4')
+      ])
+      console.log(vnode, 'vode')
+      render(vnode, document.getElementById('app'))
+      setTimeout(() => {
+        render(vnode1, document.getElementById('app'))
+        console.log(vnode1)
+      }, 1000)
+  </script>
+  
+</body>
+</html>
